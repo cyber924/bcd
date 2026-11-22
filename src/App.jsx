@@ -11,7 +11,7 @@ import SubscriptionSection from './components/SubscriptionSection';
 import Footer from './components/Footer';
 
 export default function App() {
-  const [category, setCategory] = useState('all');
+  const [category, setCategory] = useState('전체');
   const [cartItems, setCartItems] = useState(() => {
     try { const items = JSON.parse(localStorage.getItem('mealkit_cart') || '[]'); return Array.isArray(items) ? items : []; } catch { return []; }
   });
@@ -40,7 +40,7 @@ export default function App() {
     <Hero onExploreClick={() => scrollTo('catalog')} onWizardClick={() => scrollTo('wizard')} />
     <FeaturedSection onSelectKit={selectKit} />
     <div id="wizard"><WizardSection onSelectKit={selectKit} onAddToCart={addToCart} /></div>
-    <div id="catalog"><CatalogSection onSelectKit={selectKit} onAddToCart={addToCart} /></div>
+    <CatalogSection selectedCategory={category} setSelectedCategory={setCategory} onSelectKit={selectKit} onAddToCart={addToCart} />
     <SubscriptionSection /><Footer />
     {activeKit && <MealModal kit={activeKit} onClose={() => setActiveKit(null)} onAddToCart={addToCart} />}
     <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} cartItems={cartItems} onUpdateQty={updateQty} onRemoveItem={removeItem} onClearCart={() => setCartItems([])} />

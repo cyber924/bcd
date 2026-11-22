@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Hero({ onExploreClick, onWizardClick }) {
   return (
-    <section className="hero">
+    <section className="hero" id="hero">
       <div className="hero-content">
         <span className="hero-badge">✨ 10분 완성 신선 밀키트</span>
         <h1>셰프의 일상 요리,<br />내 집 주방에서 완벽하게.</h1>

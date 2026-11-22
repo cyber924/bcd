@@ -7,42 +7,42 @@ export default function Header({ cartCount, onOpenCart, activeCategory, onSelect
         🎉 신규 가입 시 첫 주문 <span>10,000원 즉시 할인 쿠폰</span> 증정 & 3만원 이상 무료 배송!
       </div>
       <nav className="navbar">
-        <div className="logo" onClick={() => onSelectCategory('all')}>
+        <a className="logo" href="#hero">
           <span>🍳 CookEasy</span>
           <span className="logo-badge">밀키트</span>
-        </div>
+        </a>
 
         <ul className="nav-links">
-          <li 
-            className={`nav-item ${activeCategory === 'all' ? 'active' : ''}`}
-            onClick={() => onSelectCategory('all')}
+          <li><button type="button"
+            className={`nav-item ${activeCategory === '전체' ? 'active' : ''}`}
+            onClick={() => onSelectCategory('전체')}
           >
             전체 메뉴
-          </li>
-          <li 
-            className={`nav-item ${activeCategory === 'korean' ? 'active' : ''}`}
-            onClick={() => onSelectCategory('korean')}
+          </button></li>
+          <li><button type="button"
+            className={`nav-item ${activeCategory === '한식' ? 'active' : ''}`}
+            onClick={() => onSelectCategory('한식')}
           >
             한식 전문
-          </li>
-          <li 
-            className={`nav-item ${activeCategory === 'western' ? 'active' : ''}`}
-            onClick={() => onSelectCategory('western')}
+          </button></li>
+          <li><button type="button"
+            className={`nav-item ${activeCategory === '양식' ? 'active' : ''}`}
+            onClick={() => onSelectCategory('양식')}
           >
             양식/스테이크
-          </li>
-          <li 
-            className={`nav-item ${activeCategory === 'health' ? 'active' : ''}`}
-            onClick={() => onSelectCategory('health')}
+          </button></li>
+          <li><button type="button"
+            className={`nav-item ${activeCategory === '다이어트/건강' ? 'active' : ''}`}
+            onClick={() => onSelectCategory('다이어트/건강')}
           >
             건강/다이어트
-          </li>
-          <li 
-            className={`nav-item ${activeCategory === 'party' ? 'active' : ''}`}
-            onClick={() => onSelectCategory('party')}
+          </button></li>
+          <li><button type="button"
+            className={`nav-item ${activeCategory === '캠핑/파티' ? 'active' : ''}`}
+            onClick={() => onSelectCategory('캠핑/파티')}
           >
             홈파티/특별식
-          </li>
+          </button></li>
         </ul>
 
         <div className="nav-actions">

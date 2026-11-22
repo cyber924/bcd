@@ -1,8 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { mealkits } from '../data/mealkits';
 
-export default function CatalogSection({ onSelectKit, onAddToCart }) {
-  const [selectedCategory, setSelectedCategory] = useState('전체');
+export default function CatalogSection({ onSelectKit, onAddToCart, selectedCategory, setSelectedCategory }) {
   const [selectedTag, setSelectedTag] = useState('전체');
   const [searchQuery, setSearchQuery] = useState('');
   const [sortOption, setSortOption] = useState('popular'); // popular, priceLow, priceHigh, rating, time
