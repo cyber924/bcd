@@ -295,3 +295,16 @@ export const SUBSCRIPTION_PLANS = [
     perks: ["무료 프리미엄 보냉백 제공", "1:1 영양사 식단 맞춤 조율", "스테이크 킷 전용 가니쉬 서비스"]
   }
 ];
+
+const categoryNames = {gourmet:'양식',camping:'캠핑/파티',health:'다이어트/건강',asian:'아시안',korean:'한식',western:'양식'};
+export const mealkits = MEAL_KITS.map(kit => ({
+  ...kit,
+  title: kit.name,
+  subtitle: kit.tagline,
+  category: categoryNames[kit.category] || kit.categoryLabel,
+  cookingTime: parseInt(kit.cookTime, 10) || 15,
+  servings: parseInt(kit.servings, 10) || 2,
+  discount: kit.originalPrice ? Math.round((1 - kit.price / kit.originalPrice) * 100) : 0,
+  dietTags: [kit.forDiet && '저칼로리', kit.forDiet && '고단백', kit.forSolo && '1인 가구', kit.forCamping && '캠핑'].filter(Boolean),
+  recipeSteps: (kit.steps || []).map(step => step.title + ': ' + step.desc)
+}));
